@@ -73,7 +73,7 @@ function buildPayload() {
 function submitForm() {
     const payload = buildPayload();
 
-    fetch("http://localhost:3000/api/users", {
+    fetch("http://13.200.105.135:3000/api/users", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
