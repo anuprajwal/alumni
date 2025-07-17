@@ -10,7 +10,9 @@ function getValue(id) {
 function buildPayload() {
     return {
         full_name: getValue("full_name"),
-        date_of_birth: getValue("dob"),
+        userData : {
+            full_name: getValue("full_name"),
+            date_of_birth: getValue("dob"),
         gender: getValue("gender"),
         email: getValue("email"),
         linkedin_url: getValue("linkedin"),
@@ -64,13 +66,14 @@ function buildPayload() {
         motivation_to_help: getValue("motivation"),
         keywords: getValue("keywords"),
         alumni_shoutout: getValue("shoutout")
+        }
     };
 }
 
 function submitForm() {
     const payload = buildPayload();
 
-    fetch("https://example.com/api/alumni", {
+    fetch("http://localhost:3000/api/users", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
